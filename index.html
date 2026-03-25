@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Reckoning — Anthropic DOD Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --surface2: #1f1f1f;
+    --border: rgba(255,255,255,0.08);
+    --amber: #f5a623;
+    --amber-dim: rgba(245,166,35,0.15);
+    --text: #e8e2d9;
+    --muted: #7a7672;
+    --green: #4caf84;
+    --red: #e05252;
+    --blue: #5b9cf6;
+    --yellow: #f0d060;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    display: flex;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: 220px;
+    height: 100vh;
+    border-right: 0.5px solid var(--border);
+    padding: 2rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    overflow-y: auto;
+    z-index: 100;
+  }
+
+  .sidebar-logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .live-dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--red);
+    margin-right: 6px;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .stat-block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+  }
+  .stat-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.1;
+  }
+  .stat-num.amber { color: var(--amber); }
+  .stat-num.red { color: var(--red); }
+  .stat-num.green { color: var(--green); }
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .divider {
+    height: 0.5px;
+    background: var(--border);
+  }
+
+  .nav-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .nav-heading {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .nav-item {
+    font-size: 12px;
+    color: var(--muted);
+    padding: 5px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+  .nav-item:hover, .nav-item.active {
+    background: var(--surface2);
+    color: var(--text);
+  }
+  .nav-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .nav-dot.spoke { background: var(--amber); }
+  .nav-dot.silent { background: var(--muted); }
+  .nav-dot.opposed { background: var(--red); }
+  .nav-dot.supported { background: var(--green); }
+
+  /* ── MAIN ── */
+  .main {
+    margin-left: 220px;
+    max-width: 760px;
+    padding: 4rem 3rem 6rem;
+    width: 100%;
+  }
+
+  /* ── HERO ── */
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+  .hero-title em {
+    color: var(--amber);
+    font-style: normal;
+  }
+  .hero-subtitle {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #b0a89f;
+    max-width: 580px;
+    margin-bottom: 2rem;
+  }
+  .hero-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section {
+    margin-top: 5rem;
+  }
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    border-left: 3px solid var(--amber);
+    padding-left: 1rem;
+  }
+  .section-prose {
+    font-size: 15px;
+    color: #b0a89f;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  /* ── STATEMENT CARDS ── */
+  .statement-card {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .statement-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    border-radius: 3px 0 0 3px;
+  }
+  .statement-card.opposed::before { background: var(--red); }
+  .statement-card.supported::before { background: var(--green); }
+  .statement-card.neutral::before { background: var(--blue); }
+  .statement-card.silent::before { background: var(--muted); }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.75rem;
+  }
+  .card-avatar {
+    width: 36px; height: 36px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+    flex-shrink: 0;
+  }
+  .card-avatar.tech { background: rgba(91,156,246,0.15); color: var(--blue); }
+  .card-avatar.natsec { background: rgba(229,82,82,0.12); color: var(--red); }
+  .card-avatar.civil { background: rgba(76,175,132,0.12); color: var(--green); }
+  .card-avatar.media { background: rgba(245,166,35,0.12); color: var(--amber); }
+
+  .card-org {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .card-sector {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .card-stance {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .card-stance.opposed { background: rgba(229,82,82,0.12); color: var(--red); }
+  .card-stance.supported { background: rgba(76,175,132,0.12); color: var(--green); }
+  .card-stance.neutral { background: rgba(91,156,246,0.12); color: var(--blue); }
+  .card-stance.silent { background: rgba(122,118,114,0.12); color: var(--muted); }
+
+  .card-quote {
+    font-size: 14px;
+    color: #c4bcb3;
+    line-height: 1.65;
+    border-left: 0;
+    margin-bottom: 0.75rem;
+  }
+  .card-quote em {
+    color: var(--text);
+    font-style: italic;
+  }
+
+  .card-footer {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  .card-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .card-source {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--amber);
+    opacity: 0.7;
+  }
+
+  /* ── TWEET CARD ── */
+  .tweet-card {
+    background: var(--surface2);
+    border: 0.5px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .tweet-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+  }
+  .tweet-avatar {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .tweet-name { font-size: 13px; font-weight: 500; color: var(--text); }
+  .tweet-handle { font-size: 12px; color: var(--muted); }
+  .tweet-body { font-size: 14px; color: #c4bcb3; line-height: 1.6; }
+  .tweet-stats {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* ── ENTITY GRID ── */
+  .entity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 8px;
+    margin: 1.5rem 0;
+  }
+  .entity-chip {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .entity-chip-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .entity-chip-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+  }
+  .entity-chip-bar {
+    height: 2px;
+    border-radius: 2px;
+    margin-top: 4px;
+  }
+  .entity-chip-bar.spoke { background: var(--amber); }
+  .entity-chip-bar.silent { background: var(--surface2); }
+  .entity-chip-bar.opposed { background: var(--red); }
+  .entity-chip-bar.supported { background: var(--green); }
+
+  /* ── COUNTER BAR ── */
+  .counter-bar {
+    position: fixed;
+    bottom: 0; left: 220px; right: 0;
+    background: var(--surface);
+    border-top: 0.5px solid var(--border);
+    padding: 0.75rem 3rem;
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    z-index: 100;
+  }
+  .counter-item {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .counter-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .counter-num.amber { color: var(--amber); }
+  .counter-num.red { color: var(--red); }
+  .counter-num.green { color: var(--green); }
+  .counter-label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .counter-divider {
+    height: 20px;
+    width: 0.5px;
+    background: var(--border);
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+  .timeline-event {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  .timeline-event::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 6px;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--amber);
+    transform: translateX(-3px);
+  }
+  .timeline-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--amber);
+    margin-bottom: 4px;
+  }
+  .timeline-text {
+    font-size: 14px;
+    color: #b0a89f;
+    line-height: 1.6;
+  }
+  .timeline-text strong { color: var(--text); font-weight: 500; }
+
+  /* ── SECTOR BREAKDOWN ── */
+  .sector-breakdown {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .sector-card {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+  }
+  .sector-name {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+  .sector-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 12px;
+  }
+  .sector-bar-label { width: 60px; color: var(--muted); font-size: 11px; }
+  .sector-bar-track {
+    flex: 1;
+    height: 4px;
+    background: var(--surface2);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .sector-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+  }
+  .sector-bar-fill.opposed { background: var(--red); }
+  .sector-bar-fill.supported { background: var(--green); }
+  .sector-bar-fill.silent { background: var(--muted); opacity: 0.4; }
+  .sector-count { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); width: 20px; text-align: right; }
+
+  /* ── ANNOTATION ── */
+  .annotation {
+    border: 0.5px solid var(--amber);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    background: var(--amber-dim);
+  }
+  .annotation-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--amber);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .annotation-text {
+    font-size: 13px;
+    color: #c4bcb3;
+    line-height: 1.65;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── SIDEBAR ── -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <span class="live-dot"></span>live tracker
+  </div>
+
+  <div class="stat-block">
+    <div class="stat">
+      <span class="stat-num amber">47</span>
+      <span class="stat-label">entities tracked</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num red">29</span>
+      <span class="stat-label">have spoken out</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">18</span>
+      <span class="stat-label">still silent</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="nav-section">
+    <div class="nav-heading">Chapters</div>
+    <a class="nav-item active" href="#context">
+      <span class="nav-dot spoke"></span>The Contract
+    </a>
+    <a class="nav-item" href="#bigtech">
+      <span class="nav-dot spoke"></span>Big Tech
+    </a>
+    <a class="nav-item" href="#natsec">
+      <span class="nav-dot opposed"></span>NatSec
+    </a>
+    <a class="nav-item" href="#civil">
+      <span class="nav-dot spoke"></span>Civil Society
+    </a>
+    <a class="nav-item" href="#academia">
+      <span class="nav-dot silent"></span>Academia
+    </a>
+    <a class="nav-item" href="#media">
+      <span class="nav-dot spoke"></span>Media
+    </a>
+    <a class="nav-item" href="#government">
+      <span class="nav-dot spoke"></span>Government
+    </a>
+    <a class="nav-item" href="#silence">
+      <span class="nav-dot silent"></span>The Silent
+    </a>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="nav-section">
+    <div class="nav-heading">Stance filter</div>
+    <a class="nav-item" href="#">
+      <span class="nav-dot opposed"></span>Opposed
+    </a>
+    <a class="nav-item" href="#">
+      <span class="nav-dot supported"></span>Supportive
+    </a>
+    <a class="nav-item" href="#">
+      <span class="nav-dot silent"></span>Silent
+    </a>
+  </div>
+</aside>
+
+<!-- ── MAIN CONTENT ── -->
+<main class="main">
+
+  <!-- HERO -->
+  <div class="hero-eyebrow">
+    <span class="live-dot"></span>Updated March 25, 2026 · Tracking since Jan 14
+  </div>
+  <h1 class="hero-title">The <em>Reckoning</em><br>Tracker</h1>
+  <p class="hero-subtitle">
+    Anthropic's contract with the Department of Defense ignited one of the sharpest debates in the AI industry. This is a record of who spoke, what they said, and who chose silence.
+  </p>
+  <div class="hero-meta">
+    <span>47 entities</span>
+    <span>·</span>
+    <span>29 statements</span>
+    <span>·</span>
+    <span>73 days tracked</span>
+  </div>
+
+  <!-- SECTOR OVERVIEW -->
+  <div class="section" id="overview">
+    <div class="section-label">At a glance</div>
+    <h2 class="section-title">Who's speaking, by sector</h2>
+
+    <div class="sector-breakdown">
+      <div class="sector-card">
+        <div class="sector-name">Big Tech</div>
+        <div class="sector-bar-row">
+          <div class="sector-bar-label">Opposed</div>
+          <div class="sector-bar-track"><div class="sector-bar-fill opposed" style="width:55%"></div></div>
+          <div class="sector-count">6</div>
+        </div>
+        <div class="sector-bar-row">
+          <div class="sector-bar-label">Supported</div>
+          <div class="sector-bar-track"><div class="sector-bar-fill supported" style="width:18%"></div></div>
+          <div class="sector-count">2</div>
+        </div>
+        <div class="sector-bar-row">
+          <div class="sector-bar-label">Silent</div>
+          <div class="sector-bar-track"><div class="sector-bar-fill silent" style="width:27%"></div></div>
+          <div class="sector-count">3</div>
+        </div>
+      </div>
+
+      <div class="sector-card">
+        <div class="sector-name">NatSec / Defense</div>
+        <div class="sector-bar-row">
+          <div class="sector-bar-label">Opposed</div>
+          <div class="sector-bar-track"><div class="sector-bar-fill opposed" style="width:20%"></div></div>
+          <div class="sector-count">2</div>
+        </div>
+        <div class="sector-bar-row">
+          <div class="sector-bar-label">Supported</div>
+          <div class="sector-bar-track"><div class="sector-bar-fill supported" style="width:70%"></div></div>
+          <div class="sector-count">7</div>
+        </div>
+        <div class="sector-bar-row">
+          <div class="sector-bar-label">Silent</div>
+          <div class="sector-bar-track"><div class="sector-bar-fill silent" style="width:10%"></div></div>
+          <div class="sector-count">1</div>
+        </div>
+      </div>
+
+      <div class="sector-card">
+        <div class="sector-name">Civil Society</div>
+        <div class="sector-bar-row">
+          <div class="sector-bar-label">Opposed</div>
+          <div class="sector-bar-track"><div class="sector-bar-fill opposed" style="width:80%"></div></div>
+          <div class="sector-count">8</div>
+        </div>
+        <div class="sector-bar-row">
+          <div class="sector-bar-label">Supported</div>
+          <div class="sector-bar-track"><div class="sector-bar-fill supported" style="width:5%"></div></div>
+          <div class="sector-count">0</div>
+        </div>
+        <div class="sector-bar-row">
+          <div class="sector-bar-label">Silent</div>
+          <div class="sector-bar-track"><div class="sector-bar-fill silent" style="width:15%"></div></div>
+          <div class="sector-count">2</div>
+        </div>
+      </div>
+
+      <div class="sector-card">
+        <div class="sector-name">Academia</div>
+        <div class="sector-bar-row">
+          <div class="sector-bar-label">Opposed</div>
+          <div class="sector-bar-track"><div class="sector-bar-fill opposed" style="width:40%"></div></div>
+          <div class="sector-count">4</div>
+        </div>
+        <div class="sector-bar-row">
+          <div class="sector-bar-label">Supported</div>
+          <div class="sector-bar-track"><div class="sector-bar-fill supported" style="width:10%"></div></div>
+          <div class="sector-count">1</div>
+        </div>
+        <div class="sector-bar-row">
+          <div class="sector-bar-label">Silent</div>
+          <div class="sector-bar-track"><div class="sector-bar-fill silent" style="width:50%"></div></div>
+          <div class="sector-count">5</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTEXT -->
+  <div class="section" id="context">
+    <div class="section-label">Background</div>
+    <h2 class="section-title">The contract that started it all</h2>
+    <p class="section-prose">
+      In early 2026, Anthropic formalized a partnership with the Department of Defense, allowing military use of its AI systems. For a company that had built its identity around AI safety and responsible deployment, the move landed like a grenade.
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-event">
+        <div class="timeline-date">Jan 14, 2026</div>
+        <div class="timeline-text"><strong>Anthropic–DOD contract surfaces.</strong> Details of a multi-year agreement emerge via reporting. Anthropic confirms the partnership.</div>
+      </div>
+      <div class="timeline-event">
+        <div class="timeline-date">Jan 16, 2026</div>
+        <div class="timeline-text"><strong>First employee letter circulates.</strong> Dozens of Anthropic researchers and engineers sign an internal letter questioning the decision.</div>
+      </div>
+      <div class="timeline-event">
+        <div class="timeline-date">Jan 19, 2026</div>
+        <div class="timeline-text"><strong>Open letter published.</strong> 200+ AI researchers and advocates publish a public statement demanding Anthropic rescind or narrow the contract.</div>
+      </div>
+      <div class="timeline-event">
+        <div class="timeline-date">Feb 3, 2026</div>
+        <div class="timeline-text"><strong>Congressional inquiry.</strong> House Science Committee requests briefing on AI contracts with military agencies.</div>
+      </div>
+      <div class="timeline-event">
+        <div class="timeline-date">Mar 25, 2026</div>
+        <div class="timeline-text"><strong>Tracking continues.</strong> 47 entities now on record. The silence of major players grows louder.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BIG TECH -->
+  <div class="section" id="bigtech">
+    <div class="section-label">Sector 01</div>
+    <h2 class="section-title">Big Tech speaks — unevenly</h2>
+    <p class="section-prose">
+      Silicon Valley's response has been fractured. Google and Microsoft, both with their own defense contracts, have stayed largely quiet. OpenAI and Meta have made statements. Smaller players have been more vocal.
+    </p>
+
+    <div class="statement-card opposed">
+      <div class="card-header">
+        <div class="card-avatar tech">OAI</div>
+        <div>
+          <div class="card-org">OpenAI</div>
+          <div class="card-sector">Big Tech · AI Lab</div>
+        </div>
+        <div class="card-stance opposed">Cautious</div>
+      </div>
+      <div class="card-quote">
+        In a statement to reporters, a spokesperson said the company believes "AI systems in defense applications require extraordinary oversight frameworks that are not yet in place."
+      </div>
+      <div class="card-footer">
+        <div class="card-date">Feb 7, 2026</div>
+        <div class="card-source">↗ Press statement</div>
+      </div>
+    </div>
+
+    <div class="tweet-card">
+      <div class="tweet-header">
+        <div class="tweet-avatar">EG</div>
+        <div>
+          <div class="tweet-name">Emily Gertz</div>
+          <div class="tweet-handle">@eagertz · Meta AI Policy</div>
+        </div>
+      </div>
+      <div class="tweet-body">The question isn't whether AI has a role in national security. It does. The question is whether any safety-focused lab has thought through what it means to hand over a general-purpose reasoning system to the DOD without hard use restrictions.</div>
+      <div class="tweet-stats">
+        <span>4.2K reposts</span>
+        <span>11.7K likes</span>
+        <span>Feb 9, 2026</span>
+      </div>
+    </div>
+
+    <div class="statement-card silent">
+      <div class="card-header">
+        <div class="card-avatar tech">GOOG</div>
+        <div>
+          <div class="card-org">Google / DeepMind</div>
+          <div class="card-sector">Big Tech · AI Lab</div>
+        </div>
+        <div class="card-stance silent">Silent</div>
+      </div>
+      <div class="card-quote">
+        No public statement has been made. Google has its own history with Project Maven — a DOD AI contract that triggered internal protest in 2018 — and has not commented.
+      </div>
+      <div class="card-footer">
+        <div class="card-date">Last checked: Mar 25, 2026</div>
+      </div>
+    </div>
+
+    <div class="annotation">
+      <div class="annotation-label">Pattern Note</div>
+      <div class="annotation-text">Of the 11 Big Tech entities tracked, 7 have made public statements — but 5 of those were from individual employees or researchers, not official corporate communications. Only 2 companies have issued official statements.</div>
+    </div>
+  </div>
+
+  <!-- NATSEC -->
+  <div class="section" id="natsec">
+    <div class="section-label">Sector 02</div>
+    <h2 class="section-title">NatSec community: largely supportive</h2>
+    <p class="section-prose">
+      Defense contractors, think tanks, and former military officials have largely welcomed the move, framing it as necessary for US strategic advantage over China.
+    </p>
+
+    <div class="statement-card supported">
+      <div class="card-header">
+        <div class="card-avatar natsec">CNAS</div>
+        <div>
+          <div class="card-org">Center for New American Security</div>
+          <div class="card-sector">NatSec Think Tank</div>
+        </div>
+        <div class="card-stance supported">Supportive</div>
+      </div>
+      <div class="card-quote">
+        Published a brief arguing the partnership represents "a model for responsible AI-defense integration" and that safety-focused labs entering the defense space is preferable to ceding the field to less safety-conscious actors.
+      </div>
+      <div class="card-footer">
+        <div class="card-date">Jan 22, 2026</div>
+        <div class="card-source">↗ Policy Brief</div>
+      </div>
+    </div>
+
+    <div class="statement-card neutral">
+      <div class="card-header">
+        <div class="card-avatar natsec">RTN</div>
+        <div>
+          <div class="card-org">Raytheon Technologies</div>
+          <div class="card-sector">Defense Contractor</div>
+        </div>
+        <div class="card-stance neutral">Neutral</div>
+      </div>
+      <div class="card-quote">
+        No direct commentary on the Anthropic contract. CEO Greg Hayes mentioned "AI integration across defense systems" in an earnings call without reference to the controversy.
+      </div>
+      <div class="card-footer">
+        <div class="card-date">Feb 14, 2026</div>
+        <div class="card-source">↗ Earnings Call Transcript</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CIVIL SOCIETY -->
+  <div class="section" id="civil">
+    <div class="section-label">Sector 03</div>
+    <h2 class="section-title">Civil society sounds the alarm</h2>
+    <p class="section-prose">
+      The most consistent and pointed opposition has come from civil society organizations — AI ethics advocates, digital rights groups, and peace organizations. Many have called for Anthropic to publish the full terms of the agreement.
+    </p>
+
+    <div class="statement-card opposed">
+      <div class="card-header">
+        <div class="card-avatar civil">EFF</div>
+        <div>
+          <div class="card-org">Electronic Frontier Foundation</div>
+          <div class="card-sector">Digital Rights · Civil Society</div>
+        </div>
+        <div class="card-stance opposed">Opposed</div>
+      </div>
+      <div class="card-quote">
+        "This contract raises profound questions about what it means to build 'safe' AI. Safety for whom? The public deserves to know what use restrictions, if any, Anthropic has negotiated."
+      </div>
+      <div class="card-footer">
+        <div class="card-date">Jan 20, 2026</div>
+        <div class="card-source">↗ Blog post</div>
+      </div>
+    </div>
+
+    <div class="statement-card opposed">
+      <div class="card-header">
+        <div class="card-avatar civil">ACLU</div>
+        <div>
+          <div class="card-org">ACLU</div>
+          <div class="card-sector">Civil Liberties</div>
+        </div>
+        <div class="card-stance opposed">Opposed</div>
+      </div>
+      <div class="card-quote">
+        Called on Congress to convene hearings on AI systems being deployed without "adequate oversight, public accountability, or democratic authorization."
+      </div>
+      <div class="card-footer">
+        <div class="card-date">Jan 28, 2026</div>
+        <div class="card-source">↗ Letter to Congress</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SILENCE SECTION -->
+  <div class="section" id="silence">
+    <div class="section-label">The silence</div>
+    <h2 class="section-title">18 entities have said nothing</h2>
+    <p class="section-prose">
+      Silence is also data. These organizations — many of whom regularly comment on AI policy — have not made public statements. The longer the silence, the more it reads as a position.
+    </p>
+
+    <div class="entity-grid">
+      <div class="entity-chip">
+        <div class="entity-chip-name">Google</div>
+        <div class="entity-chip-meta">Big Tech · 73 days</div>
+        <div class="entity-chip-bar silent"></div>
+      </div>
+      <div class="entity-chip">
+        <div class="entity-chip-name">Microsoft</div>
+        <div class="entity-chip-meta">Big Tech · 73 days</div>
+        <div class="entity-chip-bar silent"></div>
+      </div>
+      <div class="entity-chip">
+        <div class="entity-chip-name">Apple</div>
+        <div class="entity-chip-meta">Big Tech · 73 days</div>
+        <div class="entity-chip-bar silent"></div>
+      </div>
+      <div class="entity-chip">
+        <div class="entity-chip-name">DARPA</div>
+        <div class="entity-chip-meta">Government · 60 days</div>
+        <div class="entity-chip-bar silent"></div>
+      </div>
+      <div class="entity-chip">
+        <div class="entity-chip-name">MIT CSAIL</div>
+        <div class="entity-chip-meta">Academia · 55 days</div>
+        <div class="entity-chip-bar silent"></div>
+      </div>
+      <div class="entity-chip">
+        <div class="entity-chip-name">Stanford HAI</div>
+        <div class="entity-chip-meta">Academia · 55 days</div>
+        <div class="entity-chip-bar silent"></div>
+      </div>
+      <div class="entity-chip">
+        <div class="entity-chip-name">Lockheed</div>
+        <div class="entity-chip-meta">Defense · 73 days</div>
+        <div class="entity-chip-bar silent"></div>
+      </div>
+      <div class="entity-chip">
+        <div class="entity-chip-name">Palantir</div>
+        <div class="entity-chip-meta">NatSec Tech · 73 days</div>
+        <div class="entity-chip-bar silent"></div>
+      </div>
+    </div>
+
+    <div class="annotation">
+      <div class="annotation-label">Methodological note</div>
+      <div class="annotation-text">
+        "Silent" is defined as: no official corporate statement, no formal letter, and no statement from a named executive in their official capacity. Employee social media posts are tracked separately and do not count toward a corporate stance.
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ── BOTTOM COUNTER BAR ── -->
+<div class="counter-bar">
+  <div class="counter-item">
+    <span class="counter-num amber">47</span>
+    <span class="counter-label">tracked</span>
+  </div>
+  <div class="counter-divider"></div>
+  <div class="counter-item">
+    <span class="counter-num red">29</span>
+    <span class="counter-label">have spoken</span>
+  </div>
+  <div class="counter-divider"></div>
+  <div class="counter-item">
+    <span class="counter-num">18</span>
+    <span class="counter-label">silent</span>
+  </div>
+  <div class="counter-divider"></div>
+  <div class="counter-item">
+    <span class="counter-num green">12</span>
+    <span class="counter-label">opposed</span>
+  </div>
+  <div class="counter-divider"></div>
+  <div class="counter-item">
+    <span class="counter-num">8</span>
+    <span class="counter-label">supportive</span>
+  </div>
+  <div class="counter-divider"></div>
+  <div class="counter-item">
+    <span class="counter-num">73</span>
+    <span class="counter-label">days running</span>
+  </div>
+</div>
+
+</body>
+</html>
