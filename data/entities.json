@@ -1,1 +1,366 @@
-{ "entities": [ { "name": "Entity 1", "sector": "Big Tech", "stance": "supported", "quote": "Quote from Entity 1.", "date": "2026-01-15", "statistics": "Stats for Entity 1." }, { "name": "Entity 2", "sector": "Big Tech", "stance": "neutral", "quote": "Quote from Entity 2.", "date": "2026-01-16", "statistics": "Stats for Entity 2." }, { "name": "Entity 3", "sector": "Big Tech", "stance": "opposed", "quote": "Quote from Entity 3.", "date": "2026-01-17", "statistics": "Stats for Entity 3." }, { "name": "Entity 4", "sector": "Big Tech", "stance": "silent", "quote": "Quote from Entity 4.", "date": "2026-01-18", "statistics": "Stats for Entity 4." }, { "name": "Entity 5", "sector": "Big Tech", "stance": "supported", "quote": "Quote from Entity 5.", "date": "2026-01-19", "statistics": "Stats for Entity 5." }, { "name": "Entity 6", "sector": "Big Tech", "stance": "opposed", "quote": "Quote from Entity 6.", "date": "2026-01-20", "statistics": "Stats for Entity 6." }, { "name": "Entity 7", "sector": "Big Tech", "stance": "neutral", "quote": "Quote from Entity 7.", "date": "2026-01-21", "statistics": "Stats for Entity 7." }, { "name": "Entity 8", "sector": "Big Tech", "stance": "silent", "quote": "Quote from Entity 8.", "date": "2026-01-22", "statistics": "Stats for Entity 8." }, { "name": "Entity 9", "sector": "Big Tech", "stance": "supported", "quote": "Quote from Entity 9.", "date": "2026-01-23", "statistics": "Stats for Entity 9." }, { "name": "Entity 10", "sector": "Big Tech", "stance": "neutral", "quote": "Quote from Entity 10.", "date": "2026-01-24", "statistics": "Stats for Entity 10." }, { "name": "Entity 11", "sector": "Big Tech", "stance": "opposed", "quote": "Quote from Entity 11.", "date": "2026-01-25", "statistics": "Stats for Entity 11." }, { "name": "Entity 12", "sector": "NatSec/Defense", "stance": "supported", "quote": "Quote from Entity 12.", "date": "2026-01-26", "statistics": "Stats for Entity 12." }, { "name": "Entity 13", "sector": "NatSec/Defense", "stance": "opposed", "quote": "Quote from Entity 13.", "date": "2026-01-27", "statistics": "Stats for Entity 13." }, { "name": "Entity 14", "sector": "NatSec/Defense", "stance": "neutral", "quote": "Quote from Entity 14.", "date": "2026-01-28", "statistics": "Stats for Entity 14." }, { "name": "Entity 15", "sector": "NatSec/Defense", "stance": "silent", "quote": "Quote from Entity 15.", "date": "2026-01-29", "statistics": "Stats for Entity 15." }, { "name": "Entity 16", "sector": "NatSec/Defense", "stance": "supported", "quote": "Quote from Entity 16.", "date": "2026-01-30", "statistics": "Stats for Entity 16." }, { "name": "Entity 17", "sector": "NatSec/Defense", "stance": "opposed", "quote": "Quote from Entity 17.", "date": "2026-01-31", "statistics": "Stats for Entity 17." }, { "name": "Entity 18", "sector": "NatSec/Defense", "stance": "neutral", "quote": "Quote from Entity 18.", "date": "2026-02-01", "statistics": "Stats for Entity 18." }, { "name": "Entity 19", "sector": "NatSec/Defense", "stance": "silent", "quote": "Quote from Entity 19.", "date": "2026-02-02", "statistics": "Stats for Entity 19." }, { "name": "Entity 20", "sector": "NatSec/Defense", "stance": "supported", "quote": "Quote from Entity 20.", "date": "2026-02-03", "statistics": "Stats for Entity 20." }, { "name": "Entity 21", "sector": "NatSec/Defense", "stance": "opposed", "quote": "Quote from Entity 21.", "date": "2026-02-04", "statistics": "Stats for Entity 21." }, { "name": "Entity 22", "sector": "Civil Society", "stance": "supported", "quote": "Quote from Entity 22.", "date": "2026-02-05", "statistics": "Stats for Entity 22." }, { "name": "Entity 23", "sector": "Civil Society", "stance": "neutral", "quote": "Quote from Entity 23.", "date": "2026-02-06", "statistics": "Stats for Entity 23." }, { "name": "Entity 24", "sector": "Civil Society", "stance": "silent", "quote": "Quote from Entity 24.", "date": "2026-02-07", "statistics": "Stats for Entity 24." }, { "name": "Entity 25", "sector": "Civil Society", "stance": "opposed", "quote": "Quote from Entity 25.", "date": "2026-02-08", "statistics": "Stats for Entity 25." }, { "name": "Entity 26", "sector": "Civil Society", "stance": "supported", "quote": "Quote from Entity 26.", "date": "2026-02-09", "statistics": "Stats for Entity 26." }, { "name": "Entity 27", "sector": "Civil Society", "stance": "neutral", "quote": "Quote from Entity 27.", "date": "2026-02-10", "statistics": "Stats for Entity 27." }, { "name": "Entity 28", "sector": "Civil Society", "stance": "silent", "quote": "Quote from Entity 28.", "date": "2026-02-11", "statistics": "Stats for Entity 28." }, { "name": "Entity 29", "sector": "Civil Society", "stance": "opposed", "quote": "Quote from Entity 29.", "date": "2026-02-12", "statistics": "Stats for Entity 29." }, { "name": "Entity 30", "sector": "Civil Society", "stance": "supported", "quote": "Quote from Entity 30.", "date": "2026-02-13", "statistics": "Stats for Entity 30." }, { "name": "Entity 31", "sector": "Academia", "stance": "neutral", "quote": "Quote from Entity 31.", "date": "2026-02-14", "statistics": "Stats for Entity 31." }, { "name": "Entity 32", "sector": "Academia", "stance": "silent", "quote": "Quote from Entity 32.", "date": "2026-02-15", "statistics": "Stats for Entity 32." }, { "name": "Entity 33", "sector": "Academia", "stance": "opposed", "quote": "Quote from Entity 33.", "date": "2026-02-16", "statistics": "Stats for Entity 33." }, { "name": "Entity 34", "sector": "Academia", "stance": "supported", "quote": "Quote from Entity 34.", "date": "2026-02-17", "statistics": "Stats for Entity 34." }, { "name": "Entity 35", "sector": "Academia", "stance": "neutral", "quote": "Quote from Entity 35.", "date": "2026-02-18", "statistics": "Stats for Entity 35." }, { "name": "Entity 36", "sector": "Academia", "stance": "silent", "quote": "Quote from Entity 36.", "date": "2026-02-19", "statistics": "Stats for Entity 36." }, { "name": "Entity 37", "sector": "Academia", "stance": "opposed", "quote": "Quote from Entity 37.", "date": "2026-02-20", "statistics": "Stats for Entity 37." }, { "name": "Entity 38", "sector": "Academia", "stance": "supported", "quote": "Quote from Entity 38.", "date": "2026-02-21", "statistics": "Stats for Entity 38." }, { "name": "Entity 39", "sector": "Academia", "stance": "neutral", "quote": "Quote from Entity 39.", "date": "2026-02-22", "statistics": "Stats for Entity 39." }, { "name": "Entity 40", "sector": "Media/Government", "stance": "supported", "quote": "Quote from Entity 40.", "date": "2026-02-23", "statistics": "Stats for Entity 40." }, { "name": "Entity 41", "sector": "Media/Government", "stance": "opposed", "quote": "Quote from Entity 41.", "date": "2026-02-24", "statistics": "Stats for Entity 41." }, { "name": "Entity 42", "sector": "Media/Government", "stance": "neutral", "quote": "Quote from Entity 42.", "date": "2026-02-25", "statistics": "Stats for Entity 42." }, { "name": "Entity 43", "sector": "Media/Government", "stance": "silent", "quote": "Quote from Entity 43.", "date": "2026-02-26", "statistics": "Stats for Entity 43." }, { "name": "Entity 44", "sector": "Media/Government", "stance": "supported", "quote": "Quote from Entity 44.", "date": "2026-02-27", "statistics": "Stats for Entity 44." }, { "name": "Entity 45", "sector": "Media/Government", "stance": "opposed", "quote": "Quote from Entity 45.", "date": "2026-02-28", "statistics": "Stats for Entity 45." }, { "name": "Entity 46", "sector": "Media/Government", "stance": "neutral", "quote": "Quote from Entity 46.", "date": "2026-03-01", "statistics": "Stats for Entity 46." }, { "name": "Entity 47", "sector": "Media/Government", "stance": "silent", "quote": "Quote from Entity 47.", "date": "2026-03-02", "statistics": "Stats for Entity 47." } ], "timeline": [ { "event": "Event 1", "date": "2026-01-14" }, { "event": "Event 2", "date": "2026-01-15" }, { "event": "Event 3", "date": "2026-01-16" }, { "event": "Event 4", "date": "2026-01-17" }, { "event": "Event 5", "date": "2026-01-18" }, { "event": "Event 6", "date": "2026-01-19" }, { "event": "Event 7", "date": "2026-01-20" }, { "event": "Event 8", "date": "2026-01-21" }, { "event": "Event 9", "date": "2026-01-22" }, { "event": "Event 10", "date": "2026-01-23" }, { "event": "Event 11", "date": "2026-01-24" }, { "event": "Event 12", "date": "2026-01-25" }, { "event": "Event 13", "date": "2026-01-26" }, { "event": "Event 14", "date": "2026-01-27" }, { "event": "Event 15", "date": "2026-01-28" }, { "event": "Event 16", "date": "2026-01-29" }, { "event": "Event 17", "date": "2026-01-30" }, { "event": "Event 18", "date": "2026-01-31" }, { "event": "Event 19", "date": "2026-02-01" }, { "event": "Event 20", "date": "2026-02-02" }, { "event": "Event 21", "date": "2026-02-03" }, { "event": "Event 22", "date": "2026-02-04" }, { "event": "Event 23", "date": "2026-02-05" }, { "event": "Event 24", "date": "2026-02-06" }, { "event": "Event 25", "date": "2026-02-07" }, { "event": "Event 26", "date": "2026-02-08" }, { "event": "Event 27", "date": "2026-02-09" }, { "event": "Event 28", "date": "2026-02-10" }, { "event": "Event 29", "date": "2026-02-11" }, { "event": "Event 30", "date": "2026-02-12" }, { "event": "Event 31", "date": "2026-02-13" }, { "event": "Event 32", "date": "2026-02-14" }, { "event": "Event 33", "date": "2026-02-15" }, { "event": "Event 34", "date": "2026-02-16" }, { "event": "Event 35", "date": "2026-02-17" }, { "event": "Event 36", "date": "2026-02-18" }, { "event": "Event 37", "date": "2026-02-19" }, { "event": "Event 38", "date": "2026-02-20" }, { "event": "Event 39", "date": "2026-02-21" }, { "event": "Event 40", "date": "2026-02-22" }, { "event": "Event 41", "date": "2026-02-23" }, { "event": "Event 42", "date": "2026-02-24" }, { "event": "Event 43", "date": "2026-02-25" }, { "event": "Event 44", "date": "2026-02-26" }, { "event": "Event 45", "date": "2026-02-27" }, { "event": "Event 46", "date": "2026-02-28" }, { "event": "Event 47", "date": "2026-03-01" }, { "event": "Event 48", "date": "2026-03-02" }, { "event": "Event 49", "date": "2026-03-03" }, { "event": "Event 50", "date": "2026-03-04" }, { "event": "Event 51", "date": "2026-03-05" }, { "event": "Event 52", "date": "2026-03-06" }, { "event": "Event 53", "date": "2026-03-07" }, { "event": "Event 54", "date": "2026-03-08" }, { "event": "Event 55", "date": "2026-03-09" }, { "event": "Event 56", "date": "2026-03-10" }, { "event": "Event 57", "date": "2026-03-11" }, { "event": "Event 58", "date": "2026-03-12" }, { "event": "Event 59", "date": "2026-03-13" }, { "event": "Event 60", "date": "2026-03-14" }, { "event": "Event 61", "date": "2026-03-15" }, { "event": "Event 62", "date": "2026-03-16" }, { "event": "Event 63", "date": "2026-03-17" }, { "event": "Event 64", "date": "2026-03-18" }, { "event": "Event 65", "date": "2026-03-19" }, { "event": "Event 66", "date": "2026-03-20" }, { "event": "Event 67", "date": "2026-03-21" }, { "event": "Event 68", "date": "2026-03-22" }, { "event": "Event 69", "date": "2026-03-23" }, { "event": "Event 70", "date": "2026-03-24" }, { "event": "Event 71", "date": "2026-03-25" } ] }
+{
+  "meta": {
+    "title": "The Reckoning Tracker",
+    "subtitle": "Who has spoken out on the U.S. government's unprecedented designation of an American company as a supply chain risk to national security.",
+    "designation_date": "2026-03-03",
+    "tracking_since": "2026-02-27",
+    "last_updated": "2026-03-25",
+    "context": "On March 3, 2026, the Department of War designated Anthropic — an American company — a supply chain risk to national security. The label has historically been reserved for foreign adversaries like Huawei. It followed Anthropic's refusal to allow Claude to be used for mass domestic surveillance of U.S. citizens or fully autonomous weapons without human oversight. President Trump directed all federal agencies to cease using Anthropic products. Anthropic filed two federal lawsuits on March 9."
+  },
+
+  "sectors": [
+
+    {
+      "id": "private-sector",
+      "label": "Private Sector",
+      "description": "Tech companies, AI labs, trade associations, and industry employees who have filed amicus briefs or made public statements.",
+      "entities": [
+        {
+          "id": "microsoft",
+          "name": "Microsoft",
+          "type": "Corporation",
+          "sub_type": "Big Tech",
+          "stance": "supportive_of_anthropic",
+          "weight": 3100,
+          "weight_label": "$3.1T market cap",
+          "weight_metric": "market_cap",
+          "statement_type": "Amicus Brief",
+          "date": "2026-03-10",
+          "summary": "Filed an amicus brief urging the court to temporarily block the supply chain designation, calling itself directly impacted as an Anthropic partner. Said 'the Department of War needs reliable access to the country's best technology' and that everyone wants to ensure AI is not used for mass domestic surveillance or to start a war without human control.",
+          "quote": "The Department of War needs reliable access to the country's best technology. And everyone wants to ensure AI is not used for mass domestic surveillance or to start a war without human control.",
+          "source_label": "The Hill",
+          "source_url": "https://thehill.com/policy/technology/5777742-microsoft-backs-anthropic-ai-case/"
+        },
+        {
+          "id": "openai-employees",
+          "name": "OpenAI Employees (37)",
+          "type": "Individual signatories",
+          "sub_type": "AI Lab",
+          "stance": "supportive_of_anthropic",
+          "weight": 157,
+          "weight_label": "$157B valuation",
+          "weight_metric": "market_cap",
+          "statement_type": "Amicus Brief",
+          "date": "2026-03-09",
+          "summary": "Over 37 OpenAI and Google DeepMind employees — acting in personal capacity — filed an amicus brief arguing the designation threatens U.S. AI competitiveness and that Anthropic's red lines are legitimate concerns.",
+          "quote": "If allowed to proceed, this effort to punish one of the leading U.S. AI companies will undoubtedly have consequences for the United States' industrial and scientific competitiveness in the field of artificial intelligence and beyond.",
+          "source_label": "Gizmodo",
+          "source_url": "https://gizmodo.com/google-and-openai-just-filed-a-legal-brief-in-support-of-anthropic-2000731754"
+        },
+        {
+          "id": "google-employees",
+          "name": "Google / DeepMind Employees",
+          "type": "Individual signatories",
+          "sub_type": "AI Lab",
+          "stance": "supportive_of_anthropic",
+          "weight": 2100,
+          "weight_label": "$2.1T market cap",
+          "weight_metric": "market_cap",
+          "statement_type": "Amicus Brief",
+          "date": "2026-03-09",
+          "summary": "Google DeepMind Chief Scientist Jeff Dean was among 37 Google and OpenAI employees who filed an amicus brief supporting Anthropic, arguing that the designation chills open deliberation about AI risks.",
+          "quote": "It will chill open deliberation in our field about the risks and benefits of today's AI systems.",
+          "source_label": "Fortune",
+          "source_url": "https://fortune.com/2026/03/10/google-openai-employees-back-anthropic-legal-fight-military-use-of-ai/"
+        },
+        {
+          "id": "sam-altman",
+          "name": "Sam Altman",
+          "type": "Individual",
+          "sub_type": "OpenAI CEO",
+          "stance": "supportive_of_anthropic",
+          "weight": null,
+          "statement_type": "Public Statement",
+          "date": "2026-02-28",
+          "summary": "OpenAI CEO Sam Altman publicly criticized the designation on X, saying it was a bad decision and that OpenAI would take heat for saying so. He later acknowledged his company's own Pentagon deal 'looked opportunistic and sloppy.'",
+          "quote": "To say it very clearly: I think this is a very bad decision from the DoW and I hope they reverse it. If we take heat for strongly criticizing it, so be it.",
+          "source_label": "Gizmodo",
+          "source_url": "https://gizmodo.com/google-and-openai-just-filed-a-legal-brief-in-support-of-anthropic-2000731754"
+        },
+        {
+          "id": "tech-workers-open-letter",
+          "name": "Tech Workers Open Letter (500+)",
+          "type": "Coalition",
+          "sub_type": "Industry employees",
+          "stance": "supportive_of_anthropic",
+          "weight": null,
+          "statement_type": "Open Letter",
+          "date": "2026-03-02",
+          "summary": "Hundreds of tech workers from OpenAI, Slack, IBM, Cursor, Salesforce Ventures and more signed an open letter urging the DOD to withdraw the designation and calling on Congress to investigate.",
+          "quote": "Punishing an American company for declining to accept changes to a contract sends a clear message to every technology company in America: accept whatever terms the government demands, or face retaliation.",
+          "source_label": "TechCrunch",
+          "source_url": "https://techcrunch.com/2026/03/02/tech-workers-urge-dod-congress-to-withdraw-anthropic-label-as-a-supply-chain-risk/"
+        },
+        {
+          "id": "iti",
+          "name": "Information Technology Industry Council (ITI)",
+          "type": "Trade Association",
+          "sub_type": "Industry body",
+          "stance": "supportive_of_anthropic",
+          "weight": null,
+          "statement_type": "Letter to Hegseth",
+          "date": "2026-03-04",
+          "summary": "ITI, whose members include Nvidia, Google, and Anthropic, sent a letter to Hegseth arguing that contract disputes should be resolved through negotiation or by selecting alternate providers — not through emergency supply chain powers reserved for foreign adversaries.",
+          "quote": "Emergency authorities such as supply chain risk designations exist for genuine emergencies and are typically reserved for entities that have been designated as foreign adversaries.",
+          "source_label": "CNBC",
+          "source_url": "https://www.cnbc.com/2026/03/05/defense-experts-defend-anthropic-to-congress-slams-pentagons-move.html"
+        },
+        {
+          "id": "tech-trade-groups-joint",
+          "name": "CCIA, ITI, SIIA & TechNet (Joint)",
+          "type": "Trade Associations",
+          "sub_type": "Industry coalition",
+          "stance": "supportive_of_anthropic",
+          "weight": null,
+          "statement_type": "Amicus Brief",
+          "date": "2026-03-12",
+          "summary": "Four major tech trade groups representing essentially the entire technology sector filed a joint amicus brief backing Anthropic's legal challenge.",
+          "quote": null,
+          "source_label": "State of Surveillance",
+          "source_url": "https://stateofsurveillance.org/news/anthropic-pentagon-supply-chain-risk-amicus-tech-coalition-2026/"
+        }
+      ]
+    },
+
+    {
+      "id": "natsec",
+      "label": "NatSec & Defense",
+      "description": "Former military officials, defense policy experts, think tanks, and national security scholars.",
+      "entities": [
+        {
+          "id": "former-defense-officials-letter",
+          "name": "Former Defense & Intelligence Officials",
+          "type": "Coalition",
+          "sub_type": "Retired officials",
+          "stance": "supportive_of_anthropic",
+          "weight": null,
+          "statement_type": "Letter to Congress",
+          "date": "2026-03-05",
+          "summary": "A group of former defense and intelligence officials — including retired Navy Vice Admiral Donald Arthur, former Deputy Assistant Secretary of Defense Diana Banks Thompson, Council on Foreign Relations fellow Kat Duffy, and Inflection AI CEO Sean White — wrote to the chairs and ranking members of the Senate and House Armed Services Committees.",
+          "quote": "Applying this tool to penalize a U.S. firm for declining to remove safeguards against mass domestic surveillance and fully autonomous weapons is a category error with consequences that extend far beyond this dispute.",
+          "source_label": "CNBC",
+          "source_url": "https://www.cnbc.com/2026/03/05/defense-experts-defend-anthropic-to-congress-slams-pentagons-move.html"
+        },
+        {
+          "id": "herbert-lin-stanford",
+          "name": "Herbert Lin",
+          "type": "Individual",
+          "sub_type": "Stanford Senior Fellow",
+          "stance": "supportive_of_anthropic",
+          "weight": null,
+          "statement_type": "Expert Commentary",
+          "date": "2026-03-05",
+          "summary": "Stanford cybersecurity and national security scholar Herbert Lin pointed to the core contradiction: the Pentagon designated Anthropic a supply chain risk while simultaneously continuing to use Claude during U.S. military operations in Iran.",
+          "quote": "OK, wait a minute, they're a really dangerous player for U.S. national security, so you're going to use them for another six months? Huh?",
+          "source_label": "CNBC",
+          "source_url": "https://www.cnbc.com/2026/03/05/5-big-questions-anthropic-pentagon-ai-war.html"
+        },
+        {
+          "id": "michael-horowitz-cfr",
+          "name": "Michael Horowitz",
+          "type": "Individual",
+          "sub_type": "Council on Foreign Relations Senior Fellow",
+          "stance": "supportive_of_anthropic",
+          "weight": null,
+          "statement_type": "Expert Commentary",
+          "date": "2026-03-05",
+          "summary": "Horowitz, a senior fellow for technology and innovation at the CFR, noted that the continued military use of Claude during Iran strikes was the clearest possible signal of how much the Pentagon values the technology it blacklisted.",
+          "quote": "Even in a situation where there is this intense feud between the company and the Pentagon, they are using their technology in the most important military operation that the United States is conducting.",
+          "source_label": "CNBC",
+          "source_url": "https://www.cnbc.com/2026/03/05/5-big-questions-anthropic-pentagon-ai-war.html"
+        },
+        {
+          "id": "charlie-bullock-law-ai",
+          "name": "Charlie Bullock",
+          "type": "Individual",
+          "sub_type": "Institute for Law & AI",
+          "stance": "supportive_of_anthropic",
+          "weight": null,
+          "statement_type": "Expert Commentary",
+          "date": "2026-03-24",
+          "summary": "Senior research fellow at the Institute for Law & AI told Al Jazeera that Hegseth's original X post went far beyond what the law allows, and that the government has since admitted the social media post alone was not sufficient.",
+          "quote": "That [the X post] went far beyond what the law allows him to say. He also said the Pentagon hadn't done any of the things required before declaring a supply chain risk under the statute.",
+          "source_label": "Al Jazeera",
+          "source_url": "https://www.aljazeera.com/economy/2026/3/24/anthropic-challenges-us-pentagons-ban-in-san-francisco-court-showdown"
+        },
+        {
+          "id": "tess-bridgeman-nyu",
+          "name": "Tess Bridgeman",
+          "type": "Individual",
+          "sub_type": "NYU / Just Security",
+          "stance": "supportive_of_anthropic",
+          "weight": null,
+          "statement_type": "Legal Analysis",
+          "date": "2026-03-20",
+          "summary": "Former NSC Deputy Legal Adviser and Just Security co-editor-in-chief argued it would be highly unlikely for Hegseth to meet the statutory requirements of a designation, since both parties acknowledged negotiations broke down over terms of use — not adversarial risks.",
+          "quote": null,
+          "source_label": "Just Security",
+          "source_url": "https://www.justsecurity.org/132851/anthropic-supply-chain-risk-designation/"
+        },
+        {
+          "id": "lawfare-legal-analysis",
+          "name": "Lawfare (Legal Analysis)",
+          "type": "Publication",
+          "sub_type": "National security law",
+          "stance": "supportive_of_anthropic",
+          "weight": null,
+          "statement_type": "Legal Analysis",
+          "date": "2026-03-12",
+          "summary": "Lawfare published a detailed analysis concluding the designation is ultra vires — beyond what Congress authorized. The supply chain risk statute was designed for foreign adversary threats, not domestic contract disputes.",
+          "quote": "Just as 'regulate...importation' doesn't mean 'impose tariffs,' 'supply chain risk' from an 'adversary' doesn't mean 'exclude a domestic AI company over a contract dispute.'",
+          "source_label": "Lawfare",
+          "source_url": "https://www.lawfaremedia.org/article/pentagon's-anthropic-designation-won't-survive-first-contact-with-legal-system"
+        }
+      ]
+    },
+
+    {
+      "id": "lawmakers",
+      "label": "Lawmakers",
+      "description": "U.S. senators, representatives, and congressional bodies that have spoken or taken action.",
+      "entities": [
+        {
+          "id": "elizabeth-warren",
+          "name": "Sen. Elizabeth Warren",
+          "type": "U.S. Senator",
+          "sub_type": "D-Massachusetts · Senate Armed Services Committee",
+          "stance": "supportive_of_anthropic",
+          "weight": null,
+          "statement_type": "Letter + Formal Investigation",
+          "date": "2026-03-23",
+          "summary": "Warren opened a formal investigation into the Pentagon's designation, writing directly to Hegseth and calling the action retaliation. She is also probing OpenAI's Pentagon contract, which was announced hours after Anthropic was blacklisted.",
+          "quote": "I am particularly concerned that DoD is trying to strong-arm American companies into providing the Department with the tools to spy on American citizens and deploy fully autonomous weapons without adequate safeguards.",
+          "source_label": "Sen. Warren — Press Release",
+          "source_url": "https://www.warren.senate.gov/newsroom/press-releases/warren-opens-investigation-into-pentagons-designation-of-anthropic-as-national-security-risk-new-openai-contract"
+        },
+        {
+          "id": "senate-armed-services",
+          "name": "Senate Armed Services Committee (Multiple Members)",
+          "type": "Congressional Committee",
+          "sub_type": "U.S. Senate",
+          "stance": "supportive_of_anthropic",
+          "weight": null,
+          "statement_type": "Congressional Criticism",
+          "date": "2026-03-05",
+          "summary": "Multiple senators on the Armed Services Committee accused the administration of staking out an 'incoherent and extreme position' — simultaneously designating Anthropic a supply chain risk while also threatening to invoke the Defense Production Act to force Anthropic to provide its technology.",
+          "quote": "Incoherent and extreme position.",
+          "source_label": "Venable LLP",
+          "source_url": "https://www.venable.com/insights/publications/2026/03/pentagons-anthropic-supply-chain-risk-dec"
+        }
+      ]
+    },
+
+    {
+      "id": "civil-society",
+      "label": "Civil Society",
+      "description": "Civil liberties organizations, digital rights advocates, legal scholars, and watchdog groups.",
+      "entities": [
+        {
+          "id": "aclu",
+          "name": "ACLU",
+          "type": "Civil Liberties Organization",
+          "sub_type": "National Security Project",
+          "stance": "supportive_of_anthropic",
+          "weight": null,
+          "statement_type": "Public Statement",
+          "date": "2026-03-09",
+          "summary": "ACLU Deputy Director of the National Security Project Patrick Toomey issued a statement calling Anthropic's advocacy for AI guardrails laudable and First Amendment-protected, and saying the Pentagon should not be punishing the company for it.",
+          "quote": "AI-powered surveillance poses immense dangers to our democracy. Anthropic's public advocacy for AI guardrails is laudable and protected by the First Amendment — not something the Pentagon should be punishing.",
+          "source_label": "Al Jazeera",
+          "source_url": "https://www.aljazeera.com/economy/2026/3/24/anthropic-challenges-us-pentagons-ban-in-san-francisco-court-showdown"
+        },
+        {
+          "id": "eff",
+          "name": "Electronic Frontier Foundation",
+          "type": "Digital Rights Organization",
+          "sub_type": "Civil Society",
+          "stance": "supportive_of_anthropic",
+          "weight": null,
+          "statement_type": "Public Statement",
+          "date": "2026-03-02",
+          "summary": "EFF Senior Policy Analyst Matthew Guariglia warned the situation represents decades of cultivated mistrust between Big Tech and government coming to a head, and called the use of supply chain powers against a domestic firm an abuse of emergency authority.",
+          "quote": "What we're seeing right now is the culmination of decades of cultivated mistrust on the part of both Big Tech and the government.",
+          "source_label": "The Hill",
+          "source_url": "https://thehill.com/policy/technology/5775732-anthropic-pentagon-ai-surveillance-clash/"
+        },
+        {
+          "id": "retired-judges",
+          "name": "~150 Retired Federal & State Judges",
+          "type": "Coalition",
+          "sub_type": "Retired judiciary — bipartisan",
+          "stance": "supportive_of_anthropic",
+          "weight": null,
+          "statement_type": "Amicus Brief",
+          "date": "2026-03-17",
+          "summary": "Nearly 150 retired federal and state judges — appointed by both Republicans and Democrats — filed an amicus brief arguing the Pentagon misinterpreted the supply chain risk statute and violated required procedures. They noted no one is trying to force the government to use Anthropic; the company simply asks not to be punished on its way out.",
+          "quote": "No one is trying to force the Department to contract with Anthropic. Anthropic is asking only that it not be punished on its way out the door.",
+          "source_label": "CNN",
+          "source_url": "https://www.cnn.com/2026/03/17/tech/former-judges-support-anthropic"
+        },
+        {
+          "id": "center-democracy-technology",
+          "name": "Center for Democracy and Technology",
+          "type": "Policy Organization",
+          "sub_type": "Digital rights",
+          "stance": "supportive_of_anthropic",
+          "weight": null,
+          "statement_type": "Expert Commentary",
+          "date": "2026-02-28",
+          "summary": "CDT VP of Policy Samir Jain said the statutory predicate for the supply chain designation cannot possibly be met — the law requires a finding that Anthropic actually presents national security risks as part of the supply chain.",
+          "quote": "There's a process that the statute requires, including an actual finding that Anthropic presents national security risks if it's part of the supply chain. I don't think, factually, that that predicate could possibly be met here.",
+          "source_label": "CNBC",
+          "source_url": "https://www.cnbc.com/2026/03/05/5-big-questions-anthropic-pentagon-ai-war.html"
+        },
+        {
+          "id": "mayer-brown",
+          "name": "Mayer Brown (Legal Analysis)",
+          "type": "Law Firm",
+          "sub_type": "Government contracts",
+          "stance": "neutral_legal_analysis",
+          "weight": null,
+          "statement_type": "Legal Analysis",
+          "date": "2026-03-22",
+          "summary": "Mayer Brown published a detailed legal update noting the designation is the first ever applied to an American company, and providing guidance for government contractors on compliance and risk.",
+          "quote": null,
+          "source_label": "Mayer Brown",
+          "source_url": "https://www.mayerbrown.com/en/insights/publications/2026/03/anthropic-supply-chain-risk-designation-takes-effect--latest-developments-and-next-steps-for-government-contractors"
+        }
+      ]
+    }
+  ],
+
+  "key_facts": [
+    {
+      "fact": "First American company ever designated a supply chain risk",
+      "source_url": "https://www.cnbc.com/2026/03/05/anthropic-pentagon-ai-claude-iran.html"
+    },
+    {
+      "fact": "Designation effective March 3, 2026 via formal DoW letter",
+      "source_url": "https://www.mayerbrown.com/en/insights/publications/2026/03/anthropic-supply-chain-risk-designation-takes-effect--latest-developments-and-next-steps-for-government-contractors"
+    },
+    {
+      "fact": "Anthropic filed two federal lawsuits March 9, 2026 — N.D. California and D.C. Circuit",
+      "source_url": "https://techcrunch.com/2026/03/09/anthropic-sues-defense-department-over-supply-chain-risk-designation/"
+    },
+    {
+      "fact": "Claude continued to be used in U.S. military operations in Iran after the blacklisting",
+      "source_url": "https://www.cnbc.com/2026/03/05/anthropic-pentagon-ai-claude-iran.html"
+    },
+    {
+      "fact": "Anthropic's CFO stated the company risks losing hundreds of millions in 2026 revenue",
+      "source_url": "https://www.cnn.com/2026/03/17/tech/former-judges-support-anthropic"
+    },
+    {
+      "fact": "OpenAI struck its own Pentagon deal hours after Anthropic was blacklisted",
+      "source_url": "https://fortune.com/2026/03/10/google-openai-employees-back-anthropic-legal-fight-military-use-of-ai/"
+    },
+    {
+      "fact": "Anthropic's two red lines: no mass domestic surveillance, no fully autonomous weapons",
+      "source_url": "https://techcrunch.com/2026/03/09/anthropic-sues-defense-department-over-supply-chain-risk-designation/"
+    },
+    {
+      "fact": "Claude surpassed ChatGPT on the iPhone App Store the day after the Pentagon terminated the contract",
+      "source_url": "https://www.cnn.com/2026/03/09/tech/anthropic-sues-pentagon"
+    }
+  ]
+}
